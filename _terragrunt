@@ -149,9 +149,10 @@ _arguments \
     '--terragrunt-tfpath=[(path) A custom path to the Terraform binary.]'
     '--terragrunt-non-interactive=[Don''t show interactive prompts.]'
     '--terragrunt-source=[Download Terraform configurations from the specified source into a temporary folder, and run Terraform in that folder.]'
+    '--version=[Terragrunt version.]'
 
 if (( CURRENT == 1 )); then
-  _describe -t commands "terraform command" _terragrunt_cmds
+  _describe -t commands "terragrunt command" _terragrunt_cmds
   return
 fi
 
