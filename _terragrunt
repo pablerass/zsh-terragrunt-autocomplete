@@ -4,6 +4,8 @@ local -a _terragrunt_cmds
 _terragrunt_cmds=(
     'apply:Builds or changes infrastructure'
     'destroy:Destroy Terraform-managed infrastructure'
+    'spin-up:Spin up a ''stack'' running ''apply'' in all subfolders'
+    'tear-down:Tear down a ''stack'' running ''destroy'' in all subfolders'
     'get:Download and install modules for the configuration'
     'graph:Create a visual graph of Terraform resources'
     'init:Initializes Terraform configuration from a module'
@@ -143,13 +145,12 @@ __taint() {
         '-state-out=[(path) Path to write updated state file. By default, the "-state" path will be used.]'
 }
 
-_arguments \
-    '*:: :->command'
-    '--terragrunt-config=[(path) A custom path to the .terragrunt file.]'
-    '--terragrunt-tfpath=[(path) A custom path to the Terraform binary.]'
-    '--terragrunt-non-interactive=[Don''t show interactive prompts.]'
-    '--terragrunt-source=[Download Terraform configurations from the specified source into a temporary folder, and run Terraform in that folder.]'
-    '--version=[Terragrunt version.]'
+_arguments '*:: :->command'
+    #'--terragrunt-config=[(path) A custom path to the .terragrunt file.]'
+    #'--terragrunt-tfpath=[(path) A custom path to the Terraform binary.]'
+    #'--terragrunt-non-interactive=[Don''t show interactive prompts.]'
+    #'--terragrunt-source=[Download Terraform configurations from the specified source into a temporary folder, and run Terraform in that folder.]'
+    #'--version=[Terragrunt version.]'
 
 if (( CURRENT == 1 )); then
   _describe -t commands "terragrunt command" _terragrunt_cmds
